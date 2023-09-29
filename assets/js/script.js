@@ -1,8 +1,9 @@
 // Declare variables by referencing DOM elements
+var headerEl = document.querySelector(".header");
 var timeValue = document.getElementById("time");
 
-var startQuiz = document.getElementById("start");
 var startQuizBtn = document.querySelector(".start-btn");
+var startQuiz = document.getElementById("quiz");
 
 var questionEl= document.getElementById("question-display");
 var option1 = document.getElementById("btn1");
@@ -14,12 +15,17 @@ var answerChoice = document.getElementById("answer-display");
 var answer = document.getElementById("answer");
 var showAnswer = document.getElementById("show-answer");
 
+var score = document.getElementById("score");
+var scoreVal = document.getElementById("score-value");
+
+var highscores = document.getElementById("highscores");
+
 var currentIndex;
 
 // Define questions as an array of objects
 const questions = [
     {
-        question: "Commonly used date types DO Not Include:",
+        question: "Commonly used date types Do Not include:",
         options: [
             "1. Strings",
             "2. Booleans",
