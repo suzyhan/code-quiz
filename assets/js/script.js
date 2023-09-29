@@ -1,6 +1,6 @@
 // Declare variables by referencing DOM elements
 var headerEl = document.querySelector(".header");
-var timeValue = document.getElementById("time");
+var timeValue = document.getElementById("time-value");
 
 var startQuizBtn = document.querySelector(".start-btn");
 var startQuiz = document.getElementById("quiz");
@@ -76,3 +76,24 @@ const questions = [
     },
   ];
 
+// Start the quiz
+startQuizBtn.addEventListener("click", function() {
+    startQuiz.classList.add("active");
+    startTimer(); 
+});
+
+// Create a function to start timer
+var timeLeft = 60;
+var timer;
+function startTimer() {
+timer = setInterval(() => {
+    // Checks if the timer has reached zero seconds
+    if (timeLeft <= 0) {
+        timeLeft = 0;
+        clearInterval(timer);
+    } else {
+        timeLeft--; // Decrement time by 1 second
+        timeValue.textContent = timeLeft;
+    }
+}, 1000); 
+} 
