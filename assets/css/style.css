@@ -23,6 +23,7 @@ h1 {
 h3 {
     text-align: center;
     font-size: medium;
+    margin: 2px;
 }
 
 p {
@@ -76,10 +77,12 @@ p {
     justify-content: center;
     border-radius: 10px;
     padding: 30px;
+    display: none; /* Hide disply */
 }
 
 .intro,
-.start-btn {
+.start-btn,
+.submit-btn {
     font-size: 50px;
     margin: 10px;
     display: flex;
@@ -90,6 +93,7 @@ span {
 }
 
 .start-btn,
+.submit-btn,
 .btn {
     background-color: darkblue;
     font-size: small;
@@ -168,9 +172,52 @@ span {
     margin: 10px;
     padding: 10px;
     flex-direction: column;
-    display: none;
+    /* display: none; */
 }
 
 #answer h2 {
     font-size: large;
+}
+
+/* Result section */
+
+.result {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top:80px;
+    margin-top: 10px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    display: none;
+}
+
+.final-score {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-content: center;
+    margin:10px;
+}
+
+.initials {
+    width: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 10px 0 10px;
+    padding: 1px;
+}
+
+#initial {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    resize: none;
+    width: 75px;
+    height: 25px;
+    margin: 0;
+    padding: 2px;
 }
