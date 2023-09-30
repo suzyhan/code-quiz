@@ -26,7 +26,7 @@ The following images show the application's use and appearance:
 
 ![Screenshot of result page to enter initials](/assets/images/code-quiz-initials.png)
 
-Link to deployed application:
+Link to deployed application: https://suzyhan.github.io/code-quiz/
 
 ## Credits
 
