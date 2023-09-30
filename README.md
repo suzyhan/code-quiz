@@ -18,7 +18,6 @@ N/A
 - You will be able to view and clear saved high scores.
 - Click on the `Go Back` button to restart the quiz.
 
-
 The following images show the application's use and appearance:
 
 ![Screenshot of coding quiz intro to start](/assets/images/code-quiz-start.png)
@@ -26,6 +25,8 @@ The following images show the application's use and appearance:
 ![Screenshot of quiz question](/assets/images/code-quiz-question.png)
 
 ![Screenshot of result page to enter initials](/assets/images/code-quiz-initials.png)
+
+Link to deployed application:
 
 ## Credits
 
