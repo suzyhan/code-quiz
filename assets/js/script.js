@@ -64,7 +64,7 @@ const questions = [
             "3. bg-color",
             "4. background",
         ],
-        correctAnswer: "1. background-color"
+        answer: "1. background-color"
     },
     {
         question: "How do you declare a variable in JavaScript?",
@@ -77,54 +77,6 @@ const questions = [
         answer: "4. All of the above"
     }
   ];
-
-// const questions = [
-//     {
-//         no: 1,
-//         question: "Commonly used date types Do Not include:",
-//         btn1: "1. Strings",
-//         btn2: "2. Booleans",
-//         btn3: "3. Alerts",
-//         btn4:"3. Numbers",
-//         answer: "3. Alerts"
-//     },
-//     {
-//         no: 2,
-//         question: "What does HTML stand for?",
-//         btn1: "1. Hyperlinks and Text Markup Language",
-//         btn2: "2. Hyper Text Markup Language",
-//         btn3: "3. Hyper Text Making Language",
-//         btn4: "4. Hyper Text Mark Language",
-//         answer: "2. Hyper Text Markup Language"
-//     },
-//     {
-//         no: 3,
-//         question: "Which function is used to print text to the console in JavaScript?",
-//         btn1: "1. log()", 
-//         btn2: "2. print()", 
-//         btn3: "3. console.log()", 
-//         btn4: "4. display()",
-//         answer: "3. console.log()"
-//     },
-//     {
-//         no: 4,
-//         question: "Which property is used to change the background color of an element in CSS?",
-//         btn1: "1. background-color",
-//         btn2: "2. color-background",
-//         btn3: "3. bg-color",
-//         btn4: "4. background",
-//         answer: "1. background-color"
-//     },
-//     {
-//         no: 5,
-//         question: "How do you declare a variable in JavaScript?",
-//         btn1: "1. var",
-//         btn2: "2. let",
-//         btn3: "3. const",
-//         btn4: "4. All of the above",
-//         answer: "4. All of the above"
-//     }
-//   ];
 
 // Start the quiz
 startQuizBtn.addEventListener("click", function() {
@@ -151,6 +103,7 @@ timer = setInterval(() => {
 
 // Create function to load the current question with answer options
 function loadQuestion() {
+    resetPage();
     questionEl.innerText = questions[currentIndex].question;
     option1.textContent = questions[currentIndex].options[0];
     option2.textContent = questions[currentIndex].options[1];
