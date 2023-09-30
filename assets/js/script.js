@@ -112,10 +112,6 @@ function loadQuestion() {
     correctAnswer = questions[currentIndex].answer;
 }
 
-// Checking for correct loading of questions
-console.log("Current Index:", currentIndex);
-console.log("Question Text:", questions[currentIndex].question);
-
 var shuffledQuestions = [];
 
 // Create function to set a new quiz
@@ -182,7 +178,6 @@ function displayScore() {
 
 // Function to store the score/timeLeft in local storage
 function storeData() {
-    // Get new data
     var newScore = timeLeft;
     var newInitial = document.querySelector('#initial').value;
     var newData = { score: newScore,
