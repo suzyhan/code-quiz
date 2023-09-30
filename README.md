@@ -16,7 +16,7 @@ N/A
 - Once you complete answering the questions or the timer hits zero, the quiz will be over with a display of your final score.
 - Enter initials to save your score.
 - You will be able to view and clear saved high scores.
-- Click on the `Go back` button to restart the quiz.
+- Click on the `Go Back` button to restart the quiz.
 
 
 The following images show the application's use and appearance:
@@ -28,6 +28,17 @@ The following images show the application's use and appearance:
 ![Screenshot of result page to enter initials](/assets/images/code-quiz-initials.png)
 
 ## Credits
+
+The following tutorials were referenced and used to develop the web application:
+
+[JS Tutorial](https://www.w3schools.com/js/default.asp)
+[JavaScript - MDN Web Docs - Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+[CSS Tutorial](https://www.w3schools.com/css/)
+[CSS - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+[HTML Tutorial](https://www.w3schools.com/html/)
+[HTML - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
 ## License
 
