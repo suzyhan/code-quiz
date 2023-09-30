@@ -64,7 +64,7 @@
         <div class="initials">
             <h3>Enter Initials: </h3>
             <textarea required id="initial"></textarea>
-            <button class="submit-btn" type="button">Submit</button>
+            <button class="submit-btn" type="button" onclick="storeData();">Submit</button>
         </div>
     </section>
 
@@ -73,8 +73,8 @@
         <h1>High Scores</h1>
         <p id="highscores">No high scores to display.</p>
         <div class="displaybtn">
-            <button type="button" class="btn"><a href="#" id="go-back">Go Back</a></button>
-            <button type="button" id="clear" class="btn">Clear</button>
+            <button type="button" class="btn" onclick="location.reload();"><a href="#" id="go-back">Go Back</a></button>
+            <button type="button" id="clear" class="btn" onclick="clearData();">Clear</button>
         </div>
     </section>
 

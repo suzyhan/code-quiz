@@ -204,7 +204,7 @@ function checkAnswer(userAnswer, correctAnswer) {
     }
 }; 
 
-// Function to reset the div element
+// Function to reset
 function resetPage() {
     document.getElementById('answer-display').addEventListener('mouseleave', event => {
         if (event.target.classList != "choice") {
@@ -213,3 +213,59 @@ function resetPage() {
     });
 }
 
+// Function to display score when quiz is done
+function displayScore() {
+    clearInterval(timer);
+    score.classList.add("active");
+    if (timeLeft <= 0) {
+        timeLeft = 0;
+        scoreVal.innerText = timeLeft;
+        timeValue.textContent = timeLeft;
+    } else {
+        scoreVal.innerText = timeLeft;
+        timeValue.textContent = timeLeft;
+    }
+}
+
+// Function to store the score/timeLeft in local storage
+function storeData() {
+    // Get new data
+    var newScore = timeLeft;
+    var newInitial = document.querySelector('#initial').value;
+    var newData = { score: newScore,
+                    initial: newInitial};
+                
+    if (localStorage.getItem('highScores') == null) {
+        highScores = [];
+    } else {
+        highScores = JSON.parse(localStorage.getItem('highScores'));
+    }
+    highScores.push(newData); // Add new data to high scores
+    highScores.sort((a,b) => b.score - a.score); // Sort scores in descending order
+    localStorage.setItem('highScores', JSON.stringify(highScores)); 
+    displayHighScore();
+}
+
+// Function to display and view high scores
+function displayHighScore() {
+    highscore.classList.add("active");
+    headerEl.classList.add("hide");
+    startEl.classList.add("hide");
+    if (localStorage.getItem('highScores') == null) {
+        paraEl.innerText = "No high scores to display.";
+    } else {
+        var data = JSON.parse(localStorage.getItem('highScores')); 
+        var highScoreData = "";
+        for (let count = 0; count < data.length; count++) {
+            displayNo = count + 1;
+            highScoreData = highScoreData + "<br>" + displayNo + ". " + data[count].initial + " : " + data[count].score;
+        }
+        highscoresEl.innerHTML = highScoreData;
+    }  
+}
+
+// Function to clear saved high scores
+function clearData() {
+    localStorage.clear();
+    highscoresEl.innerText = "High scores cleared.";
+}
