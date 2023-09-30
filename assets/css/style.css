@@ -167,7 +167,7 @@ span {
     background-color: teal;
 }
 
-#answer {
+.user-answer {
     width: 80%;
     margin: 10px;
     padding: 10px;
@@ -175,7 +175,7 @@ span {
     display: none;
 }
 
-#answer h2 {
+.user-answer h2 {
     font-size: large;
 }
 

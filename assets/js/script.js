@@ -2,6 +2,7 @@
 var headerEl = document.querySelector(".header");
 var timeValue = document.getElementById("time-value");
 
+var startEl = document.getElementById("start");
 var startQuizBtn = document.querySelector(".start-btn");
 var startQuiz = document.getElementById("quiz");
 
@@ -18,7 +19,8 @@ var showAnswer = document.querySelector(".show-answer");
 var score = document.getElementById("score");
 var scoreVal = document.getElementById("score-value");
 
-var highscores = document.getElementById("highscores");
+var highscore = document.getElementById("highscore");
+var highscoresEl = document.getElementById("highscores");
 
 var currentIndex = 0;
 
@@ -32,7 +34,7 @@ const questions = [
             "3. Alerts",
             "4. Numbers",
         ],
-        correctAnswer: 3, // Index of the correct answer in the 'options' array
+        answer: "3. Alerts" // Index of the correct answer in the 'options' array
     },
     {
         question: "What does HTML stand for?",
@@ -42,7 +44,7 @@ const questions = [
             "3. Hyper Text Making Language",
             "4. Hyper Text Mark Language",
         ],
-        correctAnswer: 2,
+        answer: "2. Hyper Text Markup Language"
     },
     {
         question: "Which function is used to print text to the console in JavaScript?",
@@ -52,7 +54,7 @@ const questions = [
             "3. console.log()", 
             "4. display()"
         ],
-        correctAnswer: 3,
+        answer: "3. console.log()"
     },
     {
       question: "Which property is used to change the background color of an element in CSS?",
@@ -62,7 +64,7 @@ const questions = [
             "3. bg-color",
             "4. background",
         ],
-        correctAnswer: 1,
+        correctAnswer: "1. background-color"
     },
     {
         question: "How do you declare a variable in JavaScript?",
@@ -72,14 +74,63 @@ const questions = [
             "3. const",
             "4. All of the above",
         ],
-        correctAnswer: 4,
-    },
+        answer: "4. All of the above"
+    }
   ];
+
+// const questions = [
+//     {
+//         no: 1,
+//         question: "Commonly used date types Do Not include:",
+//         btn1: "1. Strings",
+//         btn2: "2. Booleans",
+//         btn3: "3. Alerts",
+//         btn4:"3. Numbers",
+//         answer: "3. Alerts"
+//     },
+//     {
+//         no: 2,
+//         question: "What does HTML stand for?",
+//         btn1: "1. Hyperlinks and Text Markup Language",
+//         btn2: "2. Hyper Text Markup Language",
+//         btn3: "3. Hyper Text Making Language",
+//         btn4: "4. Hyper Text Mark Language",
+//         answer: "2. Hyper Text Markup Language"
+//     },
+//     {
+//         no: 3,
+//         question: "Which function is used to print text to the console in JavaScript?",
+//         btn1: "1. log()", 
+//         btn2: "2. print()", 
+//         btn3: "3. console.log()", 
+//         btn4: "4. display()",
+//         answer: "3. console.log()"
+//     },
+//     {
+//         no: 4,
+//         question: "Which property is used to change the background color of an element in CSS?",
+//         btn1: "1. background-color",
+//         btn2: "2. color-background",
+//         btn3: "3. bg-color",
+//         btn4: "4. background",
+//         answer: "1. background-color"
+//     },
+//     {
+//         no: 5,
+//         question: "How do you declare a variable in JavaScript?",
+//         btn1: "1. var",
+//         btn2: "2. let",
+//         btn3: "3. const",
+//         btn4: "4. All of the above",
+//         answer: "4. All of the above"
+//     }
+//   ];
 
 // Start the quiz
 startQuizBtn.addEventListener("click", function() {
     startQuiz.classList.add("active");
     startTimer(); 
+    newQuiz();
 });
 
 // Create function to start timer
@@ -100,11 +151,12 @@ timer = setInterval(() => {
 
 // Create function to load the current question with answer options
 function loadQuestion() {
-    questionEl.textContent = questions[currentIndex].question;
-    option1.innerText = questions[currentIndex].options[0];
-    option2.innerText = questions[currentIndex].options[1];
-    option3.innerText = questions[currentIndex].options[2];
-    option4.innerText = questions[currentIndex].options[3];
+    questionEl.innerText = questions[currentIndex].question;
+    option1.textContent = questions[currentIndex].options[0];
+    option2.textContent = questions[currentIndex].options[1];
+    option3.textContent = questions[currentIndex].options[2];
+    option4.textContent = questions[currentIndex].options[3];
+    correctAnswer = questions[currentIndex].answer;
 }
 
 // Checking for correct loading of questions
@@ -117,12 +169,8 @@ var shuffledQuestions = [];
 function newQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentIndex = 0;
-    loadQuestion();
     nextQuestion();
 };
-
-newQuiz();
-
 
 // Create function to load next question
 function nextQuestion() {
@@ -137,18 +185,16 @@ function nextQuestion() {
 answerChoice.addEventListener("click", function(event) {
     if (event.target.classList == "choice") {
         var userAnswer = event.target.textContent;
-        console.log("userAnswer:", userAnswer);
-        console.log("shuffledQuestions:", shuffledQuestions);
-        var correctAnswerIndex = shuffledQuestions[currentIndex].correctAnswer;
-        checkAnswer(userAnswer, correctAnswerIndex); // Pass the correct answer index as an argument
+        var correctAnswer = shuffledQuestions[currentIndex].answer;
+        checkAnswer(userAnswer, correctAnswer);
         currentIndex = currentIndex +1;
         nextQuestion();
     }
 });
 
 // Create function to check user answer against correct answer
-function checkAnswer(userAnswer, correctAnswerIndex) {
-    if (userAnswer === shuffledQuestions[currentIndex].options[correctAnswerIndex]) {
+function checkAnswer(userAnswer, correctAnswer) {
+    if (userAnswer == correctAnswer) {
         answer.classList.add("active");
         showAnswer.textContent = "Correct!"
     } else {
@@ -157,3 +203,13 @@ function checkAnswer(userAnswer, correctAnswerIndex) {
         timeLeft = timeLeft - 10; // Subtract 10 seconds from timer
     }
 }; 
+
+// Function to reset the div element
+function resetPage() {
+    document.getElementById('answer-display').addEventListener('mouseleave', event => {
+        if (event.target.classList != "choice") {
+            answer.classList.remove("active");
+        }
+    });
+}
+
